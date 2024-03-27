@@ -1,14 +1,14 @@
-name: Secondary Workflow
+
+name: Second Workflow
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+  repository_dispatch:
+    types: [start-second-workflow]
 
 jobs:
-  secondary-job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
