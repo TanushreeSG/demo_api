@@ -10,11 +10,11 @@ jobs:
   secondary-job:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Katalon Studio Github Action
-      uses: katalon-studio/katalon-studio-github-action@v2
-      with:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Katalon Studio Github Action
+        uses: katalon-studio/katalon-studio-github-action@v2
+        with:
           version: '8.6.6'
           projectPath: '${{ github.workspace }}'
-          args: '-noSplash -retry=0 -statusDelay=15 -testSuiteCollections="Test Suites\api" -apiKey="${{secrets.DEMO_API}} --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -statusDelay=15 -testSuiteCollections="Test Suites\api" -apiKey="${{ secrets.DEMO_API}}" --config -webui.autoUpdateDrivers=true'
